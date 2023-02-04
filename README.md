@@ -16,10 +16,9 @@ Library to manipulate bytes, byte buffers and generate text representation of fi
 
 # Methods
 
-`csharp
-public static List<byte> MakeBuffer(int len, byte val = 0);
-public static List<byte> PadBuffer(List<byte> buffer, int len, byte paddingValue = 0);
-public static void WriteBuffer(BinaryWriter writer, List<byte> buffer);
-public static void WriteString(BinaryWriter writer, string s, int len);
-public static List<byte> GenerateSectorBuffer(List<byte> buffer);
-`
+
+	public static List<byte> MakeBuffer(int len, byte val = 0);
+	public static List<byte> PadBuffer(List<byte> buffer, int len, byte paddingValue = 0);
+	public static void WriteBuffer(BinaryWriter writer, List<byte> buffer);
+	public static void WriteString(BinaryWriter writer, string s, int len);
+	public static List<byte> GenerateSectorBuffer(List<byte> buffer);
