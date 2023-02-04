@@ -122,7 +122,11 @@ namespace BufferUtil
                 }
 
                 var sepaString = $" {options.VerticalBar} ";
-                sb.AppendFormat("{0:000000000}", bytePerLineCounter);
+
+                
+                var lineNumberFormatExp = $"{{0:{options.LineNumberFormat}}}";
+                sb.AppendFormat(lineNumberFormatExp, bytePerLineCounter);
+
                 sb.Append(sepaString);
 
                 if (options.ShowHexaDecimal)

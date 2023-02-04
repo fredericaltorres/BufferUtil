@@ -14,6 +14,8 @@
         public string VerticalBar = VERTICAL_BAR_SEPARATOR_ALONE;
         public int bytePerLine = 16;
         public bool ShowFileInformation = true;
+
+        public string LineNumberFormat = "000000000";
     }
 }
 
