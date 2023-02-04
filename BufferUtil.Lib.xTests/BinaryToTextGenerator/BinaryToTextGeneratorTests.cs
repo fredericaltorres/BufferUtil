@@ -1,31 +1,7 @@
 ﻿namespace BufferUtil.Lib.xTests
 {
-    public class BassTest
-    {
-        public const string TEST_FILE_01 = @".\BinaryToTextGenerator\Files\TestFile01.txt";
-        public const string TEST_FILE_02 = @".\BinaryToTextGenerator\Files\TestFile02.txt";
-        public const string TEST_FILE_01_BYTE_PER_LINE_8 = @".\BinaryToTextGenerator\Files\TestFile01.BytePerLine8.txt";
 
-        public string GetExpectedFile(string file)
-        {
-            var p = Path.GetDirectoryName(file);
-            var n = Path.GetFileNameWithoutExtension(file);
-            var e = Path.GetExtension(file);
-            var r = Path.Combine(p, n + ".Expected" + e);
-
-            if (!File.Exists(r))
-                throw new ApplicationException($"Expected test file not found:{file}");
-
-            return r;
-        }
-
-        public string GetExpectedFileContent(string file)
-        {
-            return File.ReadAllText(this.GetExpectedFile(file));
-        }
-    }
-
-    public class BinaryToTextGeneratorTests  : BassTest
+    public class BinaryToTextGeneratorTests  : BaseTestClass
     {
         [Theory]
         [InlineData(TEST_FILE_02)]
