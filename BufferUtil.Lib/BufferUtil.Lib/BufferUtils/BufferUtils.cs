@@ -23,6 +23,14 @@ namespace BufferUtil
             return buffer;
         }
 
+        public static List<byte>  FinalizeWriter(BinaryWriter writer)
+        {
+            writer.BaseStream.Flush();
+            var count = (int)writer.BaseStream.Length;
+            var buffer = ((MemoryStream)writer.BaseStream).GetBuffer().ToList();
+            return buffer.Take(count).ToList();
+        }
+
         public static void WriteBuffer(BinaryWriter writer, List<byte> buffer)
         {
             writer.Write(buffer.ToArray(), 0, buffer.Count);
@@ -33,24 +41,13 @@ namespace BufferUtil
             writer.Write(f.ToCharArray(), 0, len);
         }
 
-        public static List<byte> GenerateBuffer(List<byte> bufferIn)
+        public static List<byte> GenerateSectorBuffer(List<byte> buffer)
         {
-            bufferIn = PadBuffer(bufferIn, SECTOR_SIZE);
-            using (MemoryStream stream = new MemoryStream())
-            {
-                using (BinaryWriter writer = new BinaryWriter(stream))
-                {
-                    writer.Write(bufferIn.ToArray(), 0, bufferIn.Count);
-                }
-                stream.Flush();
-                var buffer = stream.GetBuffer().ToList();
-                if (buffer.Count > SECTOR_SIZE)
-                    throw new System.ApplicationException("buffer cannot be more than 512 bytes");
+            var tmpBuffer = PadBuffer(buffer, SECTOR_SIZE);
+            if (tmpBuffer.Count > SECTOR_SIZE)
+                throw new System.ArgumentException("buffer cannot be more than 512 bytes");
 
-                buffer = BufferUtils.PadBuffer(buffer, SECTOR_SIZE);
-
-                return buffer;
-            }
+            return tmpBuffer;
         }
     }
 }
