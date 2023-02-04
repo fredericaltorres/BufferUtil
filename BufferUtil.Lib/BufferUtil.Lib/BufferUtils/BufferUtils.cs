@@ -14,11 +14,11 @@ namespace BufferUtil
                 buffer.Add(val);
             return buffer;
         }
-        public static List<byte> PadBuffer(List<byte> buffer, int len)
+        public static List<byte> PadBuffer(List<byte> buffer, int len, byte paddingValue = 0)
         {
             if(buffer.Count < len)
             {
-                buffer.AddRange(MakeBuffer(len-buffer.Count, 0));
+                buffer.AddRange(MakeBuffer(len-buffer.Count, paddingValue));
             }
             return buffer;
         }

@@ -16,10 +16,18 @@
         }
 
         [Fact]
-        public void Generate_TextFiles()
+        public void MakeBuffer()
         {
             var result = BufferUtil.BufferUtils.MakeBuffer(16, 0);
             var expected = new List<byte> { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            base.AssertBuffer(expected, result);
+        }
+
+        [Fact]
+        public void PadBuffer()
+        {
+            var result = BufferUtil.BufferUtils.PadBuffer(new List<byte> { 1 }, 3, 64);
+            var expected = new List<byte> { 1, 64, 64 };
             base.AssertBuffer(expected, result);
         }
     }
