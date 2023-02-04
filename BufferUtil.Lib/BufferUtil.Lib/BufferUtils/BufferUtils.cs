@@ -23,7 +23,7 @@ namespace BufferUtil
             return buffer;
         }
 
-        public static List<byte>  FinalizeWriter(BinaryWriter writer)
+        public static List<byte> FinalizeWriter(BinaryWriter writer)
         {
             writer.BaseStream.Flush();
             var count = (int)writer.BaseStream.Length;
