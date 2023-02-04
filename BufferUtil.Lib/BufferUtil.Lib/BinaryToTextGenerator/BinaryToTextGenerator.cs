@@ -7,11 +7,9 @@ using System.Threading.Tasks;
 
 namespace BufferUtil
 {
-
     public class BinaryToTextGenerator //: LogViewer.Net.FileProviderSuperBaseClass
     {
         public string _fileName { get; }
-
         private List<byte> mainBuffer;
 
         public BinaryToTextGenerator(string fileName, string text = null)
@@ -66,7 +64,6 @@ namespace BufferUtil
                     sectorIndex += 1;
                 }
 
-
                 if (options.ShowAscii)
                 {
                     foreach (byte b in tmpBuffer)
@@ -79,7 +76,6 @@ namespace BufferUtil
                         asciRep.AppendFormat("{0}", (char)bb);
                     }
                 }
-
 
                 if (options.ShowHexaDecimal)
                 {
@@ -122,11 +118,8 @@ namespace BufferUtil
                 }
 
                 var sepaString = $" {options.VerticalBar} ";
-
-                
                 var lineNumberFormatExp = $"{{0:{options.LineNumberFormat}}}";
                 sb.AppendFormat(lineNumberFormatExp, bytePerLineCounter);
-
                 sb.Append(sepaString);
 
                 if (options.ShowHexaDecimal)
@@ -148,7 +141,6 @@ namespace BufferUtil
                 }
 
                 sb.AppendLine();
-
                 bytePerLineCounter += 1;
                 totalSizeProcessed = bytePerLineCounter * options.bytePerLine;
             }
