@@ -1,0 +1,5 @@
+﻿File: .\Files\TestFile01.txt
+Size:9, LastModfied:2/4/2023 10:31:05 AM, CreationDate:2/4/2023 10:43:55 AM, Attributes:Archive
+
+000000000 ┊ EF BB BF 41 42 43 44 0D 0A                      ┊ ...ABCD..        ┊ 
+

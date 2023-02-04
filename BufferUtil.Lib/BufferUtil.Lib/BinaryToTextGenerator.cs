@@ -41,8 +41,12 @@ namespace BufferUtil
             if (_fileName != null)
             {
                 var fi = new FileInfo(_fileName);
-                sb.Append($"File: {_fileName}").AppendLine();
-                sb.Append($"Size:{fi.Length}, LastModfied:{fi.LastWriteTime}, CreationDate:{fi.CreationTime}, Attributes:{fi.Attributes}").AppendLine().AppendLine();
+
+                if (options.ShowFileInformation)
+                {
+                    sb.Append($"File: {_fileName}").AppendLine();
+                    sb.Append($"Size:{fi.Length}, LastModfied:{fi.LastWriteTime}, CreationDate:{fi.CreationTime}, Attributes:{fi.Attributes}").AppendLine().AppendLine();
+                }
             }
 
             var sectorIndex = 0;

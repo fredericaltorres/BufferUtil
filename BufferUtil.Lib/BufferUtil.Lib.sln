@@ -5,8 +5,6 @@ VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BufferUtil.Lib", "BufferUtil.Lib\BufferUtil.Lib.csproj", "{BA906D0B-7441-446E-859E-2E9856A5407C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BufferUtil.Tests", "..\BufferUtil.Tests\BufferUtil.Tests.csproj", "{7A84F0B6-68A9-4846-96C4-45A140E301FE}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BufferUtil.Lib.xTests", "..\BufferUtil.Lib.xTests\BufferUtil.Lib.xTests.csproj", "{92FD39AF-10CC-4456-9C2E-E7B18B19990D}"
 EndProject
 Global
@@ -19,10 +17,6 @@ Global
 		{BA906D0B-7441-446E-859E-2E9856A5407C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA906D0B-7441-446E-859E-2E9856A5407C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA906D0B-7441-446E-859E-2E9856A5407C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7A84F0B6-68A9-4846-96C4-45A140E301FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7A84F0B6-68A9-4846-96C4-45A140E301FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7A84F0B6-68A9-4846-96C4-45A140E301FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7A84F0B6-68A9-4846-96C4-45A140E301FE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{92FD39AF-10CC-4456-9C2E-E7B18B19990D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{92FD39AF-10CC-4456-9C2E-E7B18B19990D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92FD39AF-10CC-4456-9C2E-E7B18B19990D}.Release|Any CPU.ActiveCfg = Release|Any CPU

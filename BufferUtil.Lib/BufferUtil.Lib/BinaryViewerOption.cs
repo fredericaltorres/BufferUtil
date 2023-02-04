@@ -7,12 +7,13 @@
         public bool ShowDecimal = false;
         public bool ShowBinary = false;
         public bool ShowHexaDecimal = true;
-        public bool ShowSector = true;
+        public bool ShowSector = false;
         public int SectorSize = 512;
         public bool ShowAscii = true;
         public bool GenerateCArrayCode = false;
         public string VerticalBar = VERTICAL_BAR_SEPARATOR_ALONE;
         public int bytePerLine = 16;
+        public bool ShowFileInformation = true;
     }
 }
 

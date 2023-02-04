@@ -9,10 +9,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Files\TestFile01.Expected.txt" />
     <None Remove="Files\TestFile01.txt" />
+    <None Remove="Files\TestFile02.Expected.txt" />
+    <None Remove="Files\TestFile02.txt" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Files\TestFile02.Expected.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\TestFile01.Expected.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Files\TestFile02.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Files\TestFile01.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
