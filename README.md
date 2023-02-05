@@ -32,3 +32,11 @@ With bits/binary mode
 	public static void WriteBuffer(BinaryWriter writer, List<byte> buffer);
 	public static void WriteString(BinaryWriter writer, string s, int len);
 	public static List<byte> GenerateSectorBuffer(List<byte> buffer);
+
+# Samples
+
+```cssharp
+  var bg = new BinaryToTextGenerator(inputTextFile);
+  var defaultOptions = new BinaryViewerOption { ShowBinary = true };
+  var result = bg.Generate(defaultOptions);
+```
