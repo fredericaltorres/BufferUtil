@@ -1,4 +1,6 @@
-﻿namespace BufferUtil
+﻿using System.Collections.Generic;
+
+namespace BufferUtil
 {
     public class BinaryViewerOption
     {
@@ -14,8 +16,13 @@
         public string VerticalBar = VERTICAL_BAR_SEPARATOR_ALONE;
         public int bytePerLine = 16;
         public bool ShowFileInformation = true;
-
         public string LineNumberFormat = "000000000";
+        public List<byte> VisibleAsciiCharRange = new List<byte>() {  32, 127 };
+
+        public bool IsAsciiVisibleChar(byte c)
+        {
+            return c >= VisibleAsciiCharRange[0] && c <= VisibleAsciiCharRange[1];
+        }
     }
 }
 

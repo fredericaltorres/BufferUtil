@@ -24,6 +24,11 @@
             return File.ReadAllText(this.GetExpectedFile(file));
         }
 
+        public string GetSpecificFileContent(string file)
+        {
+            return File.ReadAllText(file);
+        }
+
         public void AssertBuffer(List<byte> b1, List<byte> b2)
         {
             if (b1.Count != b2.Count)

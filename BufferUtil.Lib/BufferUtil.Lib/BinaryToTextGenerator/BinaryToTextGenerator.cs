@@ -69,7 +69,7 @@ namespace BufferUtil
                     foreach (byte b in tmpBuffer)
                     {
                         var bb = b;
-                        if ((b < 32) || (b >= 128))
+                        if (!options.IsAsciiVisibleChar(bb))
                         {
                             bb = (byte)'.';
                         }

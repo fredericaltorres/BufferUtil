@@ -1,0 +1,5 @@
+﻿File: .\BinaryToTextGenerator\Files\TestFile01.txt
+Size:9, LastModfied:2/4/2023 10:31:05 AM, CreationDate:2/4/2023 11:25:11 AM, Attributes:Archive
+
+000000000 ┊ EF BB BF 41 42 43 44 0D 0A                      ┊ 239 187 191 065 066 067 068 013 010  ┊ ...ABCD..        ┊ 
+
