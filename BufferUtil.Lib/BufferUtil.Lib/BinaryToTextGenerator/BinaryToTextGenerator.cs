@@ -75,6 +75,7 @@ namespace BufferUtil
                         }
                         asciRep.AppendFormat("{0}", (char)bb);
                     }
+                    asciRep.Append("".PadLeft((options.bytePerLine * 1) - asciRep.Length));
                 }
 
                 if (options.ShowHexaDecimal)
@@ -94,7 +95,12 @@ namespace BufferUtil
                                 bv = bv.PadLeft(8, '0');
                                 hexaRep.AppendFormat("{0:X2}:{1} ", b, bv);
                             }
-
+                        }
+                        var l = hexaRep.Length;
+                        var hexaBinaryExpectedLineLength = options.bytePerLine * (2 + 8 + 2);
+                        if (l != hexaBinaryExpectedLineLength)
+                        {
+                            hexaRep = new StringBuilder(hexaRep.ToString().PadRight(hexaBinaryExpectedLineLength));
                         }
                     }
                     else
@@ -109,8 +115,9 @@ namespace BufferUtil
                         }
                     }
                     hexaRep = hexaRep.Remove(hexaRep.Length - 1, 1); // Remove last space
-
                 }
+
+
                 if (options.ShowDecimal)
                 {
                     foreach (byte b in tmpBuffer)

@@ -25,7 +25,21 @@
             var defaultOptions = new BinaryViewerOption { ShowBinary = true };
             var result = bg.Generate(defaultOptions);
 
-            var expected = GetSpecificFileContent(@".\BinaryToTextGenerator\Files\TestFile0.ShowBinary.Expected.txt");
+            var expected = GetSpecificFileContent(@".\BinaryToTextGenerator\Files\TestFile01.ShowBinary.Expected.txt");
+
+            Assert.Equal(expected, result);
+        }
+
+
+        [Fact]
+        public void Generate_TextFiles_02_BitDisplayOn_EOL_Issue()
+        {
+            var inputTextFile = TEST_FILE_02;
+            var bg = new BinaryToTextGenerator(inputTextFile);
+            var defaultOptions = new BinaryViewerOption { ShowBinary = true };
+            var result = bg.Generate(defaultOptions);
+
+            var expected = GetSpecificFileContent(@".\BinaryToTextGenerator\Files\TestFile02.ShowBinary.Expected.txt");
 
             Assert.Equal(expected, result);
         }
@@ -39,7 +53,7 @@
             var defaultOptions = new BinaryViewerOption { ShowDecimal = true };
             var result = bg.Generate(defaultOptions);
 
-            var expected = GetSpecificFileContent(@".\BinaryToTextGenerator\Files\TestFile0.ShowDecimal.Expected.txt");
+            var expected = GetSpecificFileContent(@".\BinaryToTextGenerator\Files\TestFile01.ShowDecimal.Expected.txt");
 
             Assert.Equal(expected, result);
         }
