@@ -2,8 +2,6 @@
 
 namespace BufferUtil.Lib.xTests.BufferUtils
 {
-
-
     public class BufferUtilTests : BaseTestClass
     {
         [Fact]
@@ -14,12 +12,11 @@ namespace BufferUtil.Lib.xTests.BufferUtils
 
             Assert.Throws<ArgumentException>(() => base.AssertBuffer(new List<byte> { 0, 1, 2 }, new List<byte> { 0, 1 }));
             Assert.Throws<ArgumentException>(() => base.AssertBuffer(new List<byte> { 0, 1, 2 }, new List<byte> { 0, 1, 55 }));
-
         }
 
         [Fact]
         public void MakeBuffer()
-        {
+        {            
             var result = BufferUtil.BufferUtils.MakeBuffer(16, 0);
             var expected = new List<byte> { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             base.AssertBuffer(expected, result);

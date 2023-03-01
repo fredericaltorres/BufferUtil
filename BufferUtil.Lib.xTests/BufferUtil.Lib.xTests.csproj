@@ -64,6 +64,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="NewFolder\" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\BufferUtil.Lib\BufferUtil.Lib\BufferUtil.Lib.csproj" />
   </ItemGroup>
 
