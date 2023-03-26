@@ -5,7 +5,7 @@ namespace BufferUtil.Lib.xTests.BufferUtils
     public class HexaStringTests : BaseTestClass
     {
         [Fact]
-        public void Build()
+        public void ConvertTo()
         {
             var input = new List<byte> { 0, 1, 2, 10 };
             var result = HexaString.ConvertTo(input.ToArray());
@@ -23,6 +23,14 @@ namespace BufferUtil.Lib.xTests.BufferUtils
             result = HexaString.ConvertTo(input.ToArray(), "x2", "{0}, ", "{0}");
             expected = "00, 01, 02, 0a";
             Assert.Equal(expected, result);
+        }
+
+        [Fact]
+        public void ParseCsv()
+        {
+            var result = HexaString.ParseCSV("00, 01, 02, 0a");
+            var expected = new List<byte> { 0, 1, 2, 10 };
+            base.AssertBuffer(expected, result);
         }
 
         [Fact]

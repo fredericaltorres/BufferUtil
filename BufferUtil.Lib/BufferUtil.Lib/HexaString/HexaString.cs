@@ -28,6 +28,15 @@ namespace BufferUtil.Lib
             return result.ToString();
         }
 
+        public static List<byte> ParseCSV(string hexaStringCsv)
+        {
+            var r = new List<byte>();
+            var parts = hexaStringCsv.Split(',').Select(s => s.Trim()).ToList();
+            foreach(var v in parts)
+                r.Add(Convert.ToByte(v, 16));
+            return r;
+        }
+
         /// <summary>
         /// A hexa string is bb0177af
         /// </summary>
