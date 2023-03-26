@@ -7,18 +7,25 @@ namespace BufferUtil.Lib
 {
     public class HexaString
     {
-
         /// <summary>
         /// A hexa string is bb0177af
         /// </summary>
-        public static string ConvertTo(byte[] encrypted)
+        public static string ConvertTo(byte[] encrypted, string hexaFormat = "X2", string itemFormat = "{0}", string lastItemFormat = "{0}")
         {
-            var result = "";
+            var result = new StringBuilder(1024);
 
-            foreach (var b in encrypted)
-                result += $"{b.ToString("x")}";
+            for(var i = 0; i < encrypted.Length; i++)
+            {
+                var b = encrypted[i];
+                var hexaStr = $"{b.ToString(hexaFormat)}";
 
-            return result;
+                if(i == encrypted.Length - 1) 
+                    result.AppendFormat(lastItemFormat, hexaStr);
+                else
+                    result.AppendFormat(itemFormat, hexaStr);
+            }
+
+            return result.ToString();
         }
 
         /// <summary>
