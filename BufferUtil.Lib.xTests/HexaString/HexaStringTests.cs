@@ -5,6 +5,15 @@ namespace BufferUtil.Lib.xTests.BufferUtils
     public class HexaStringTests : BaseTestClass
     {
         [Fact]
+        public void ConvertTo_Max()
+        {
+            var input = new List<byte> { 0, 1, 2, 10 };
+            var result = HexaString.ConvertTo(input.ToArray(), max: 2);
+            var expected = "0001";
+            Assert.Equal(expected, result);
+        }
+
+        [Fact]
         public void ConvertTo()
         {
             var input = new List<byte> { 0, 1, 2, 10 };

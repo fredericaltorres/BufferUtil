@@ -10,7 +10,7 @@ namespace BufferUtil.Lib
         /// <summary>
         /// A hexa string is bb0177af
         /// </summary>
-        public static string ConvertTo(byte[] encrypted, string hexaFormat = "X2", string itemFormat = "{0}", string lastItemFormat = "{0}")
+        public static string ConvertTo(byte[] encrypted, string hexaFormat = "X2", string itemFormat = "{0}", string lastItemFormat = "{0}", int max = -1)
         {
             var result = new StringBuilder(1024);
 
@@ -23,6 +23,9 @@ namespace BufferUtil.Lib
                     result.AppendFormat(lastItemFormat, hexaStr);
                 else
                     result.AppendFormat(itemFormat, hexaStr);
+
+                if (max != -1 && i == max-1)
+                    break;
             }
 
             return result.ToString();
