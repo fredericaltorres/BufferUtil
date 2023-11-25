@@ -2,6 +2,8 @@
 
 Library to manipulate bytes, byte buffers and generate text representation of files
 
+![Logo ](.\BufferUtil.png "Logo")
+
 	000000000 ┊ EF BB BF 41 42 43 44 45 46 47 48 49 4A 4B 4C 4D ┊ ...ABCDEFGHIJKLM ┊ 
 	000000001 ┊ 4E 4F 50 51 52 53 54 55 56 57 58 59 5A 0D 0A 41 ┊ NOPQRSTUVWXYZ..A ┊ 
 	000000002 ┊ 42 43 44 45 46 47 48 49 4A 4B 4C 4D 4E 4F 50 51 ┊ BCDEFGHIJKLMNOPQ ┊ 
