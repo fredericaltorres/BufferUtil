@@ -49,5 +49,51 @@ namespace BufferUtil
 
             return tmpBuffer;
         }
+
+        static int FindSequence(byte[] buffer, byte[] sequence, int startIndex = 0)
+        {
+            if (sequence.Length == 0) return -1; // No sequence to find
+            if (buffer.Length < sequence.Length) return -1; // Buffer is too small to contain the sequence
+
+            for (int i = startIndex; i <= buffer.Length - sequence.Length; i++)
+            {
+                bool found = true;
+                for (int j = 0; j < sequence.Length; j++)
+                {
+                    if (buffer[i + j] != sequence[j])
+                    {
+                        found = false;
+                        break;
+                    }
+                }
+                if (found) return i; // Sequence found at index i
+            }
+
+            return -1; // Sequence not found
+        }
+
+        public static List<byte> SearchForSequence(string fileName, List<byte> startSequence, List<byte> endSequence)
+        {
+            var buffer = File.ReadAllBytes(fileName).ToList();
+            return SearchForSequence(buffer, startSequence, endSequence);
+        }
+
+        public static List<byte> SearchForSequence(List<byte> buffer, List<byte> startSequence, List<byte> endSequence)
+        {
+            var start = FindSequence(buffer.ToArray(), startSequence.ToArray());
+            if (start == -1)
+                return null;
+
+            var end = FindSequence(buffer.ToArray(), endSequence.ToArray(), startIndex: start+1);
+            if (end == -1)
+                return null;
+
+            return buffer.GetRange(start+ startSequence.Count, end - start - endSequence.Count);
+        }
+
+        public static List<byte> Invoke(List<byte> buffer, List<byte> startSequence, List<byte> endSequence)
+        {
+            return SearchForSequence(buffer, startSequence, endSequence);
+        }
     }
 }

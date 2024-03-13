@@ -86,5 +86,26 @@ namespace BufferUtil.Lib.xTests.BufferUtils
                 Assert.Throws<ArgumentException>(() => BufferUtil.BufferUtils.GenerateSectorBuffer(sourceBuffer));
             }
         }
+
+        [Fact]
+        public void SearchForSequence()
+        {
+            var expected = new List<byte> { 65, 65, 65, 65 };
+            var buffer = new List<byte> { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64, 64, 64, 64, 65, 65, 65, 65, 64, 64, 64, 64 };
+            var startSequence = new List<byte> { 64, 64, 64, 64 };
+            var result = BufferUtil.BufferUtils.SearchForSequence(buffer, startSequence, startSequence);
+            base.AssertBuffer(expected, result);
+        }
+
+        [Fact]
+        public void SearchForSequence_File()
+        {
+            var textFileWithChars = @".\BinaryToTextGenerator\Files\TestFile.Asci.Sequence.txt";
+            var expected = new List<byte> { (byte)'H', (byte)'e', (byte)'l', (byte)'l', (byte)'o', (byte)' ', (byte)'W', (byte)'o', (byte)'r', (byte)'l', (byte)'d' };
+            var startSequence = new List<byte> { 65, 65, 65, 65 };
+            var endSequence = new List<byte> { 66, 66, 66, 66 };
+            var result = BufferUtil.BufferUtils.SearchForSequence(textFileWithChars, startSequence, endSequence);
+            base.AssertBuffer(expected, result);
+        }
     }
 }

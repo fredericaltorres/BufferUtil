@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="BinaryToTextGenerator\Files\TestFile.Asci.Sequence.txt" />
     <None Remove="BinaryToTextGenerator\Files\TestFile01.BytePerLine8.Expected.txt" />
     <None Remove="BinaryToTextGenerator\Files\TestFile01.BytePerLine8.txt" />
     <None Remove="BinaryToTextGenerator\Files\TestFile01.Expected.txt" />
@@ -21,6 +22,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="BinaryToTextGenerator\Files\TestFile.Asci.Sequence.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="BinaryToTextGenerator\Files\TestFile02.ShowBinary.Expected.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
