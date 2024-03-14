@@ -91,8 +91,10 @@ namespace BufferUtil
             return buffer.GetRange(start+ startSequence.Count, end - start - endSequence.Count);
         }
 
-        public static List<byte> Invoke(List<byte> buffer, List<byte> startSequence, List<byte> endSequence)
+        public static List<byte> Invoke(List<byte> buffer)
         {
+            var startSequence = BufferUtil.BufferUtils.MakeBuffer(5, 65);
+            var endSequence = BufferUtil.BufferUtils.MakeBuffer(5, 66);
             return SearchForSequence(buffer, startSequence, endSequence);
         }
     }
