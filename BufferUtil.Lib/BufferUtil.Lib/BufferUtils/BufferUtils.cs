@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 
 namespace BufferUtil
 {
@@ -91,8 +92,9 @@ namespace BufferUtil
             return buffer.GetRange(start+ startSequence.Count, end - start - endSequence.Count);
         }
 
-        public static List<byte> Invoke(List<byte> buffer)
+        public static List<byte> Invoke(System.Reflection.Assembly a)
         {
+            List<byte> buffer = File.ReadAllBytes(a.Location).ToList();
             var startSequence = BufferUtil.BufferUtils.MakeBuffer(5, 65);
             var endSequence = BufferUtil.BufferUtils.MakeBuffer(5, 66);
             return SearchForSequence(buffer, startSequence, endSequence);
