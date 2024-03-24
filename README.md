@@ -1,6 +1,6 @@
 ﻿# BufferUtil
 
-Library to manipulate bytes, byte buffers and generate text representation of files
+Library to manipulate bytes, byte buffers and generate text representation of files.
 
 ![Logo ](BufferUtil.50.png "Logo")
 
